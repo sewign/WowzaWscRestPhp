@@ -9,115 +9,70 @@ class SourceConnectionInformation
 {
     /**
      * @var string
-     * @SerializedName("primary_server")
-     * @Type("string")
-     */
-    private $primaryServer;
-
-    /**
-     * @var int
-     * @SerializedName("host_port")
-     * @Type("int")
-     */
-    private $hostPort;
-
-    /**
-     * @var string
      * @SerializedName("stream_name")
      * @Type("string")
      */
     private $streamName;
 
     /**
-     * @var bool
-     * @SerializedName("disableAuthentication")
-     * @Type("bool")
+     * @var string
+     * @SerializedName("application_name")
+     * @Type("string")
      */
-    private $disable_authentication;
+    private $applicationName;
 
     /**
      * @var string
-     * @SerializedName("username")
+     * @SerializedName("sdp_url")
      * @Type("string")
      */
-    private $username;
+    private $sdpUrl;
 
     /**
-     * @var string
-     * @SerializedName("password")
-     * @Type("string")
+     * @return string
      */
-    private $password;
-
-    public function getPrimaryServer(): ?string
-    {
-        return $this->primaryServer;
-    }
-
-    public function setPrimaryServer(string $primaryServer): self
-    {
-        $this->primaryServer = $primaryServer;
-        
-        return $this;
-    }
-
-    public function getHostPort(): ?int
-    {
-        return $this->hostPort;
-    }
-
-    public function setHostPort(int $hostPort): self
-    {
-        $this->hostPort = $hostPort;
-        
-        return $this;
-    }
-
-    public function getStreamName(): ?string
+    public function getStreamName(): string
     {
         return $this->streamName;
     }
 
-    public function setStreamName(string $streamName): self
+    /**
+     * @param string $streamName
+     */
+    public function setStreamName(string $streamName): void
     {
         $this->streamName = $streamName;
-        
-        return $this;
     }
 
-    public function isDisableAuthentication(): ?bool
+    /**
+     * @return string
+     */
+    public function getApplicationName(): string
     {
-        return $this->disable_authentication;
+        return $this->applicationName;
     }
 
-    public function setDisableAuthentication(bool $disable_authentication): self
+    /**
+     * @param string $applicationName
+     */
+    public function setApplicationName(string $applicationName): void
     {
-        $this->disable_authentication = $disable_authentication;
-        
-        return $this;
+        $this->applicationName = $applicationName;
     }
 
-    public function getUsername(): ?string
+    /**
+     * @return string
+     */
+    public function getSdpUrl(): string
     {
-        return $this->username;
+        return $this->sdpUrl;
     }
 
-    public function setUsername(string $username): self
+    /**
+     * @param string $sdpUrl
+     */
+    public function setSdpUrl(string $sdpUrl): void
     {
-        $this->username = $username;
-        
-        return $this;
-    }
-
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-        
-        return $this;
+        $this->sdpUrl = $sdpUrl;
     }
 }
