@@ -38,10 +38,12 @@ class SourceConnectionInformation
 
     /**
      * @param string $streamName
+     * @return SourceConnectionInformation
      */
-    public function setStreamName(string $streamName): void
+    public function setStreamName(string $streamName): SourceConnectionInformation
     {
         $this->streamName = $streamName;
+        return $this;
     }
 
     /**
@@ -54,10 +56,12 @@ class SourceConnectionInformation
 
     /**
      * @param string $applicationName
+     * @return SourceConnectionInformation
      */
-    public function setApplicationName(string $applicationName): void
+    public function setApplicationName(string $applicationName): SourceConnectionInformation
     {
         $this->applicationName = $applicationName;
+        return $this;
     }
 
     /**
@@ -70,9 +74,11 @@ class SourceConnectionInformation
 
     /**
      * @param string $sdpUrl
+     * @return SourceConnectionInformation
      */
-    public function setSdpUrl(string $sdpUrl): void
+    public function setSdpUrl(string $sdpUrl): SourceConnectionInformation
     {
         $this->sdpUrl = $sdpUrl;
+        return $this;
     }
 }
