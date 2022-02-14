@@ -20,8 +20,8 @@ abstract class Request
     const HTTP_METHOD_DELETE = 'delete';
     const HTTP_METHOD_PUT = 'put';
 
-    const ROOT_URL = 'https://api.cloud.wowza.com/api/v1.6';
-    const ROOT_URL_TEST = 'https://api-sandbox.cloud.wowza.com/api/v1.6';
+    const ROOT_URL = 'https://api.cloud.wowza.com/api/v1.7';
+    const ROOT_URL_TEST = 'https://api-sandbox.cloud.wowza.com/api/v1.7';
 
     const ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
@@ -52,15 +52,18 @@ abstract class Request
     public function __construct(
         string $apiKey,
         string $accessKey,
-        bool $test = true
-    ) {
+        bool   $test = true
+    )
+    {
         $this->apiKey = $apiKey;
         $this->accessKey = $accessKey;
         $this->test = $test;
     }
 
     abstract public function getApiPath(): string;
+
     abstract public function getResponseClass(): string;
+
     abstract public function getHttpMethod(): string;
 
     public function getApiKey(): string
@@ -177,7 +180,7 @@ abstract class Request
 
         if ($statusCode >= 400 && $statusCode < 500) {
             return $this->getSerializer()->deserialize(
-                (string) $response->getBody(),
+                (string)$response->getBody(),
                 self::ERROR_RESPONSE_CLASS,
                 'json'
             );
@@ -190,7 +193,7 @@ abstract class Request
             ));
         }
 
-        $body = (string) $response->getBody();
+        $body = (string)$response->getBody();
 
         if ('' === $body) {
             $class = $this->getResponseClass();
@@ -198,7 +201,7 @@ abstract class Request
         }
 
         return $this->getSerializer()->deserialize(
-            (string) $response->getBody(),
+            (string)$response->getBody(),
             $this->getResponseClass(),
             'json'
         );
@@ -230,8 +233,8 @@ abstract class Request
     protected function getHeaders(): array
     {
         return [
-            'Content-Type'  => 'application/json; charset=utf-8',
-            'Accept'        => 'application/json',
+            'Content-Type' => 'application/json; charset=utf-8',
+            'Accept' => 'application/json',
             'wsc-api-key' => $this->apiKey,
             'wsc-access-key' => $this->accessKey
         ];
