@@ -4,6 +4,7 @@ namespace Ticketpark\Wsc\Response\StreamTarget;
 
 use Ticketpark\Wsc\Container\FastlyStreamTarget;
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class FastlyStreamUpdateResponse
 {
