@@ -10,6 +10,6 @@ class HLSChunkSizeProperty extends AbstractProperty
     {
         $this->section = self::SECTION_HLS;
         $this->key = 'chunkSize';
-        $this->value = $value;
+        $this->value = (string)$value;
     }
 }
